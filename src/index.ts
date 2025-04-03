@@ -1,5 +1,5 @@
-import { app } from "./common/app";
-import { db } from "./common/database";
+import { app } from "./services/app";
+import { db } from "./services/database";
 
 app.initialize(3000, "localhost")
 db.initialize()

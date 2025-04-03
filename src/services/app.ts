@@ -1,5 +1,6 @@
 import express from "express";
-import { job } from "../controllers/Jobs";
+import jobRouter from "../routes/jobRouter";
+import logger from '../logger';
 
 class App {
 
@@ -13,7 +14,7 @@ class App {
 
     public initialize(port: number, host: string) {
         this.server.listen(port, host, () => {
-            console.log(`Server is running at http://${host}:${port}`);
+            logger.info(`Server is running at http://${host}:${port}`);
         });
     }
 
@@ -23,7 +24,7 @@ class App {
     }
 
     private router() {
-        this.server.use("/jobs", job.router);
+        this.server.use("/jobs", jobRouter);
     }
     
 }

@@ -1,4 +1,5 @@
 import { Sequelize } from "sequelize";
+import logger from "../logger";
 
 class Database {
     
@@ -11,10 +12,10 @@ class Database {
     initialize() {
         this.sequelize.authenticate()
             .then(() => {
-                console.log("Database connection has been established successfully.");
+                logger.info(`Database connection has been established successfully`);
             })
             .catch((error) => {
-                console.error("Unable to connect to the database:", error);
+                logger.error(`Unable to connect to the database:`, error);
             });
     }
 

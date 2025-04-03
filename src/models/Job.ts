@@ -1,5 +1,5 @@
 import Sequelize from "sequelize";
-import { db } from "../common/database";
+import { db } from "../services/database";
 
 export const Job = db.sequelize.define("job", {
     title: {
@@ -21,6 +21,15 @@ export const Job = db.sequelize.define("job", {
         type: Sequelize.BOOLEAN
     }
 });
+
+export interface JobResponseBody {
+    title: string;
+    description: string;
+    company: string;
+    salary: number;
+    email: string;
+    newJob: boolean;
+}
 
 export interface JobRequestBody {
     title: string;
